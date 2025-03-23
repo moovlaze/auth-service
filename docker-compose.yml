@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  events:
+    build: ./events
+    container_name: events
+    ports: -8001:8001
