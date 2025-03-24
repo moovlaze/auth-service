@@ -3,7 +3,7 @@ from datetime import datetime
 from fastapi import APIRouter, Query
 
 from . import controllers
-from .schemas import SEvents
+from src.core.schemas import SEvents
 
 router = APIRouter()
 
