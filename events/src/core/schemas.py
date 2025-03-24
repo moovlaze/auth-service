@@ -4,10 +4,6 @@ from pydantic import BaseModel
 
 
 class SEventsBase(BaseModel):
-    id: int
-
-
-class SEvents(SEventsBase):
     name: str
     description: str
     event_date: datetime
@@ -15,9 +11,17 @@ class SEvents(SEventsBase):
     ticket_price: int
 
 
-class SEventsUpdate(BaseModel):
-    name: str | None = None
-    description: str | None = None
-    event_date: datetime | None = None
-    available_tickets: int | None = None
-    ticket_price: int | None = None
+class SEventsID(SEventsBase):
+    id: int
+
+
+class SEventsCreate(SEventsBase):
+    pass
+
+
+class SEventsUpdate(SEventsBase):
+    name: str
+    description: str
+    event_date: datetime
+    available_tickets: int
+    ticket_price: int
