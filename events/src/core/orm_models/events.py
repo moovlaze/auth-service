@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import Column, Integer, String, DateTime, Index
 
 from .base import Base
 
@@ -12,3 +12,5 @@ class Events(Base):
     event_date = Column(DateTime)
     available_tickets = Column(Integer)
     ticket_price = Column(Integer)
+
+    __table_args__ = (Index("idx_events_event-date", "event_date"),)
