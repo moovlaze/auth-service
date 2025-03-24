@@ -21,7 +21,9 @@ def get_events_by_date(
 ) -> list[Events]:
     with Session() as session:
         stmt = select(Events).where(
-            Events.event_date >= date_from, Events.event_date <= date_to
+            Events.event_date >= date_from,
+            Events.event_date <= date_to,
+            Events.available_tickets >= 0,
         )
         stmt = stmt.offset((page - 1) * items_count).limit(items_count)
         events = session.execute(stmt).scalars().all()
