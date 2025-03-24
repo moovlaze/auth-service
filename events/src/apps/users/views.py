@@ -3,13 +3,13 @@ from datetime import datetime
 from fastapi import APIRouter, Query
 
 from . import controllers
-from src.core.schemas import SEvents
+from src.core.schemas import SEventsID
 
 router = APIRouter()
 
 
 @router.get("/events/{event_id}")
-def get_event_by_id(event_id: int) -> SEvents:
+def get_event_by_id(event_id: int) -> SEventsID:
     return controllers.get_event_by_id(id=event_id)
 
 
@@ -19,7 +19,7 @@ def get_events_by_date(
     date_to: datetime,
     page: int = Query(..., gt=0),
     items_count: int = Query(..., gt=0),
-) -> list[SEvents]:
+) -> list[SEventsID]:
     return controllers.get_events_by_date(
         date_from=date_from,
         date_to=date_to,
