@@ -25,3 +25,8 @@ class SEventsUpdate(SEventsBase):
     event_date: datetime
     available_tickets: int
     ticket_price: int
+
+
+class SMessage(BaseModel):
+    status: str = "status"
+    message: str = "message"

@@ -1,18 +1,22 @@
 from fastapi import APIRouter
 
-router = APIRouter(tags="Admins API")
+from src.core.schemas import SEventsCreate, SEventsUpdate, SMessage
+from . import controllers
+
+
+router = APIRouter(tags=["Admins API"])
 
 
 @router.post("/events/")
-def create_event():
-    pass
+def create_event(body: SEventsCreate) -> SMessage:
+    return controllers.create_event(data=body)
 
 
 @router.put("/events/{event_id}")
-def update_event():
-    pass
+def update_event(event_id: int, body: SEventsUpdate) -> SMessage:
+    return controllers.update_event(id=event_id, data=body)
 
 
 @router.delete("/events/{event_id}")
-def delete_event():
-    pass
+def delete_event(event_id: int):
+    return controllers.delete_event(id=event_id)
