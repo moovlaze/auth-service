@@ -41,4 +41,16 @@ def update_event(id: int, data: Events) -> dict[str, str]:
 
 
 def delete_event(id: int) -> dict[str, str]:
-    pass
+    with Session() as session:
+        stmt = select(Events).where(Events.id == id)
+        event: Events = session.execute(stmt).scalars().first()
+
+        if event:
+            event.soft_delete()
+
+        session.commit()
+
+        return {
+            "status": "ok",
+            "message": "The record deleted",
+        }

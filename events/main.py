@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-import uvicorn
+# import uvicorn
 
 from src.apps.users import users_router
 from src.apps.admins import admins_router
@@ -16,4 +16,4 @@ app.include_router(admins_router)
 
 if __name__ == "__main__":
     init_db()
-    uvicorn.run(app="main:app", reload=True)
+    # uvicorn.run(app="main:app", reload=True)

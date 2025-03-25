@@ -18,5 +18,5 @@ def update_event(event_id: int, body: SEventsUpdate) -> SMessage:
 
 
 @router.delete("/events/{event_id}")
-def delete_event(event_id: int):
+def delete_event(event_id: int) -> SMessage:
     return controllers.delete_event(id=event_id)
