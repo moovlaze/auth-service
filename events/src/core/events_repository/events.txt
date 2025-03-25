@@ -1,4 +1,37 @@
 ----------
 Create
-create new event
+New event 19:
+string
+string
+2025-03-25 15:12:39.055000+00:00
+0
+1
+--------------------
+Create
+New event 20:
+string
+string
+2025-03-25 15:12:39.055000
+0
+1
+--------------------
+Create
+update event 4:
+put
+string
+2025-03-25 15:15:13.520000
+123
+1222
+--------------------
+Soft-delete
+Soft-elete event 20:
+
+--------------------
+Action: Create
+update event 4:
+put
+string
+2025-03-25 15:15:13.520000
+123
+1222
 ----------

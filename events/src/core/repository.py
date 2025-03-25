@@ -13,7 +13,7 @@ class MyEventRepository:
             mode="a",
             encoding="UTF-8",
         ) as fl:
-            fl.write(f"----------\n{operation}\n{description}\n----------")
+            fl.write(f"----------\nAction: {operation}\n{description}\n----------")
 
 
 def get_event_repository() -> IEventRepository:
