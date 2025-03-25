@@ -34,4 +34,44 @@ string
 2025-03-25 15:15:13.520000
 123
 1222
+--------------------
+Action: Create
+New event 21:
+string
+string
+2025-03-25 15:57:13.290000
+0
+1
+--------------------
+Action: Create
+update event 21:
+new
+string
+2025-03-25 15:57:47.201000
+0
+1
+--------------------
+Action: Create
+update event 21:
+new
+string
+2025-03-25 15:57:47.201000
+1331
+1
+--------------------
+Action: Update
+Update event 20:
+string
+string
+2025-03-25 16:06:32.211000
+0
+1
+--------------------
+Action: Update
+Update event 20:
+new 20
+string
+2025-03-25 16:06:32.211000
+0
+1
 ----------

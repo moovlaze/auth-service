@@ -7,6 +7,17 @@ engine = create_engine("postgresql+psycopg://postgres:postgres@localhost:5432/po
 Session = sessionmaker(bind=engine)
 
 
+def get_db_session():
+    session = Session()
+
+    try:
+        yield session
+    except Exception as e:
+        print("ERROR: ", e)
+    finally:
+        session.close()
+
+
 def init_db():
     # Base.metadata.clear()
     # Base.metadata.drop_all(engine)
