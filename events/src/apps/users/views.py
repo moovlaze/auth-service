@@ -3,13 +3,13 @@ from datetime import datetime
 from fastapi import APIRouter, Query
 
 from . import controllers
-from src.core.schemas import SEventsID
+from src.core.schemas import SEventsID, SMessage
 
 router = APIRouter()
 
 
 @router.get("/events/{event_id}")
-def get_event_by_id(event_id: int) -> SEventsID:
+def get_event_by_id(event_id: int) -> SEventsID | SMessage:
     return controllers.get_event_by_id(id=event_id)
 
 
