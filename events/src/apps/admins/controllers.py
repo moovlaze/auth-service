@@ -32,11 +32,16 @@ def update_event(id: int, data: Events) -> dict[str, str]:
             event.available_tickets = data.available_tickets
             event.ticket_price = data.ticket_price
 
-        session.commit()
+            session.commit()
+
+            return {
+                "status": "ok",
+                "message": f"The record: {data.name} is successfully updated",
+            }
 
         return {
-            "status": "ok",
-            "message": f"The record: {data.name} is successfully updated",
+            "status": "flase",
+            "message": "record not found",
         }
 
 
@@ -48,9 +53,14 @@ def delete_event(id: int) -> dict[str, str]:
         if event:
             event.soft_delete()
 
-        session.commit()
+            session.commit()
+
+            return {
+                "status": "ok",
+                "message": "The record deleted",
+            }
 
         return {
-            "status": "ok",
-            "message": "The record deleted",
+            "status": "flase",
+            "message": "record not found",
         }
