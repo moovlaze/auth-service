@@ -1,14 +1,14 @@
 from datetime import datetime
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class SEventsBase(BaseModel):
     name: str
     description: str
     event_date: datetime
-    available_tickets: int
-    ticket_price: int
+    available_tickets: int = Field(..., gt=-1)
+    ticket_price: int = Field(..., gt=0)
 
 
 class SEventsID(SEventsBase):
@@ -20,11 +20,7 @@ class SEventsCreate(SEventsBase):
 
 
 class SEventsUpdate(SEventsBase):
-    name: str
-    description: str
-    event_date: datetime
-    available_tickets: int
-    ticket_price: int
+    pass
 
 
 class SMessage(BaseModel):
